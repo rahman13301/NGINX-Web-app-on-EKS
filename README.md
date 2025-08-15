@@ -11,7 +11,7 @@ chmod +x kubectl
 
 sudo mv kubectl /usr/local/bin/
 
-kubectl version –-client
+kubectl version --client
 
 -	curl → A command-line tool for downloading files from the internet.
 -	-L → Follows redirects (if the URL moves, it still downloads the file).
