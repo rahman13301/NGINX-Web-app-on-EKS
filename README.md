@@ -1,4 +1,7 @@
-# DEPLOYING SIMPLE NGINX WEB APP ON EKS (Kubernetes)
+# KUBERNETES:
+
+<img width="712" height="867" alt="image" src="https://github.com/user-attachments/assets/9ff473e0-765d-4d68-8a3a-622233ae6d75" />
+
 
 ## Installing kubectl, eksctl and k8s cluster:
 -	Create EC2 instance, create IAM role and add IAM role:
@@ -108,16 +111,16 @@ kubectl get svc nginx-service
 -	Kubernetes fetches details of the nginx-service from the cluster.
 -	It displays the Service type, cluster IP, external IP (if applicable), and exposed ports.
 
-Access the Application:
+- **Access the Application:**
 
 -	Open a browser and visit:
 -	http://<EXTERNAL-IP
 -	You can see the *Nginx welcome page*. It means successfully deployed the project.
 
-- Command to delete the running cluster.
+- **Command to delete the running cluster**.
 
 ```  
 eksctl delete cluster --name my-cluster --region us-east-1
 ```
 
-
+Project successfully completed.
