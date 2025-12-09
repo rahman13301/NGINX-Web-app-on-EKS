@@ -5,7 +5,14 @@
 
 ## Installing kubectl, eksctl and k8s cluster:
 -	Create EC2 instance, create IAM role and add IAM role:
+
+<img width="1565" height="348" alt="image" src="https://github.com/user-attachments/assets/755741e5-907c-4ce5-abb7-45ed6adf1244" />
+
+  
 -	Connect EC2 instance and enter below commands to install **kubectl**
+  <img width="1161" height="860" alt="image" src="https://github.com/user-attachments/assets/3a7f782d-b45a-4006-9de0-40924337030b" />
+
+
 
 ```   
 curl -LO "https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -75,15 +82,17 @@ spec:
         ports:
         - containerPort: 80
 ```
-        
+- Kubernetes will create the Deployment and 2 Pods with NGINX through below commands       
 ```        
-kubectl apply -f nginx-deployment.yaml	
+kubectl apply -f nginx-deployment.yaml
 kubectl get pods
+```
+- Create file2 nginx-service.yaml add below dependencies into the file2.
+```
 touch nginx-service.yaml
 vi nginx-service.yaml
 ```
-- Kubernetes will create the Deployment and 2 Pods with NGINX
-- Create file2 nginx-service.yaml add dependencies.
+
 ```
 apiVersion: v1
 kind: Service
@@ -98,9 +107,9 @@ spec:
     port: 80
     targetPort: 80
 ```
-    
+- Kubernetes will create the Deployment and 2 Pods with NGINX through below command.    
 ```
-kubectl apply -f nginx-service.yaml		: 	
+kubectl apply -f nginx-service.yaml
 ```
 -	With above command Kubernetes will create a LoadBalancer and attach it to your pods
 
