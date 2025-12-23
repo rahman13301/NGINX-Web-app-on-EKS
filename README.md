@@ -6,8 +6,8 @@
 ## Installing kubectl, eksctl and k8s cluster:
 -	Create EC2 instance, create IAM role and add IAM role:
 
-<img width="1565" height="348" alt="image" src="https://github.com/user-attachments/assets/755741e5-907c-4ce5-abb7-45ed6adf1244" />
-
+<img width="1503" height="341" alt="image" src="https://github.com/user-attachments/assets/bc90c7bf-62e4-4639-9e5b-125dc4db6389" />
+<img width="1079" height="702" alt="image" src="https://github.com/user-attachments/assets/67420ef5-6c67-422b-8d0f-6febecd2b9eb" />
   
 -	Connect EC2 instance and enter below commands to install **kubectl**
   <img width="1161" height="860" alt="image" src="https://github.com/user-attachments/assets/3a7f782d-b45a-4006-9de0-40924337030b" />
