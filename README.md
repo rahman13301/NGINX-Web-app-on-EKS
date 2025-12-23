@@ -15,7 +15,7 @@
 
 
 
-```   
+```
 curl -LO "https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
@@ -56,6 +56,7 @@ eksctl version
 ```
 eksctl create cluster --name my-cluster --region us-east-1 --nodegroup-name my-nodes --nodes 2
 ```
+
 - We can see clusters are creating.
 
 <img width="1897" height="681" alt="image" src="https://github.com/user-attachments/assets/e6509858-f991-4505-8bf3-d26582a40eb8" />
@@ -75,11 +76,8 @@ eksctl create cluster --name my-cluster --region us-east-1 --nodegroup-name my-n
 
 - This is required for authenticating with EKS clusters. Install aws-iam-authenticator in Ubuntu.
 
-  ```
-# Download
+```
 curl -o aws-iam-authenticator https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.3/2023-11-14/bin/linux/amd64/aws-iam-authenticator
-
-# Make executable and move
 chmod +x aws-iam-authenticator
 sudo mv aws-iam-authenticator /usr/local/bin/
 kubectl get nodes
@@ -93,8 +91,10 @@ kubectl get nodes
 
 ```
 touch nginx-deployment.yaml
-vi nginx-deployment.yaml
+nano nginx-deployment.yaml
 ```
+
+<img width="642" height="185" alt="image" src="https://github.com/user-attachments/assets/c7346119-ae34-4bb1-a5e2-e48e788fac84" />
 
 
 ```
@@ -118,16 +118,21 @@ spec:
         ports:
         - containerPort: 80
 ```
-- Kubernetes will create the Deployment and 2 Pods with NGINX through below commands       
+
+- Kubernetes will create the Deployment and 2 Pods with NGINX through below commands
+         
 ```        
 kubectl apply -f nginx-deployment.yaml
 kubectl get pods
 ```
+
 - Create file2 nginx-service.yaml add below dependencies into the file2.
+  
 ```
 touch nginx-service.yaml
 vi nginx-service.yaml
 ```
+<img width="1271" height="173" alt="image" src="https://github.com/user-attachments/assets/153b3a38-130b-4757-8fb6-5afafaa3d9ab" />
 
 ```
 apiVersion: v1
@@ -143,24 +148,30 @@ spec:
     port: 80
     targetPort: 80
 ```
-- Kubernetes will create the Deployment and 2 Pods with NGINX through below command.    
+
+- Kubernetes will create the Deployment and 2 Pods with NGINX through below command.
+    
 ```
 kubectl apply -f nginx-service.yaml
-```
--	With above command Kubernetes will create a LoadBalancer and attach it to your pods
-
-```  
 kubectl get svc nginx-service
 ```
 
+-	With above command Kubernetes will create a LoadBalancer and attach it to your pods
 -	Kubernetes fetches details of the nginx-service from the cluster.
 -	It displays the Service type, cluster IP, external IP (if applicable), and exposed ports.
 
 - **Access the Application:**
 
 -	Open a browser and visit:
--	http://<EXTERNAL-IP
+-	http://EXTERNAL-IP
+
+<img width="1251" height="92" alt="image" src="https://github.com/user-attachments/assets/d7b4894c-4fce-4345-9642-277fc2f3155e" />
+
+  
 -	You can see the *Nginx welcome page*. It means successfully deployed the project.
+
+  <img width="1214" height="405" alt="image" src="https://github.com/user-attachments/assets/40a26ba4-6955-4053-a44e-10dfb3d2ec53" />
+
 
 - **Command to delete the running cluster**.
 
