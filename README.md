@@ -49,9 +49,29 @@ eksctl version
  
 
 **Commands to install k8s cluster:**
-- Change the attached IAM role policy permission to install k8s clusters. Try re attach the IAM role.
+- Change the attached IAM role policy permission to install k8s clusters. Try after re attaching the IAM role.
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "elasticloadbalancing:*",
+                "eks:*",
+                "ec2:*",
+                "iam:*",
+                "autoscaling:*",
+                "cloudformation:*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
   
-<img width="798" height="665" alt="image" src="https://github.com/user-attachments/assets/e63ab7e7-6df8-4fb8-a37f-624a6b578fe4" />
+<img width="700" height="466" alt="image" src="https://github.com/user-attachments/assets/ba609298-49f9-4958-8f03-e2c273f10f29" />
+
 
 ```
 eksctl create cluster --name my-cluster --region us-east-1 --nodegroup-name my-nodes --nodes 2
@@ -178,5 +198,11 @@ kubectl get svc nginx-service
 ```  
 eksctl delete cluster --name my-cluster --region us-east-1
 ```
+- Clusters deleted
+
+<img width="1022" height="421" alt="image" src="https://github.com/user-attachments/assets/7ecd5b30-88c7-40f4-9f39-41ccbc8fec99" />
+<img width="1544" height="250" alt="image" src="https://github.com/user-attachments/assets/1dc85f0a-e75f-4154-90ee-769e7d8c142e" />
+<img width="1564" height="381" alt="image" src="https://github.com/user-attachments/assets/3b67e4a3-68a1-4022-a552-6727d5ad3315" />
+
 
 Project successfully completed.
